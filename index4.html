@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Haunted House
+    </title>
+    <style>
+        #background {
+            position: absolute;
+            width: 980px;
+            height: 624px;
+        }
+        
+        #arrow3 {
+            position: absolute;
+            width: 70px;
+            top: 15px;
+            left: 15px;
+            z-index: 1;
+        }
+        
+        #skulltop {
+            position: absolute;
+            width: 275px;
+            top: 160px;
+            left: 110px;
+            z-index: 20;
+        }
+        
+        #skullbottom {
+            position: absolute;
+            width: 250px;
+            top: 357px;
+            left: 123px;
+            z-index: 19;
+            -webkit-animation-name: skull;
+            -webkit-animation-duration: 4s;
+            -webkit-animation-iteration-count: infinite;
+            animation-name: skull;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+        }
+        
+        @-webkit-keyframes skull {
+            0% {
+                top: 357px;
+                left: 123px;
+            }
+            50% {
+                top: 330px;
+                left: 123px;
+            }
+            100% {
+                top: 357px;
+                left: 123px;
+            }
+        }
+        
+        @keyframes skull {
+            0% {
+                top: 357px;
+                left: 123px;
+            }
+            50% {
+                top: 330px;
+                left: 123px;
+            }
+            100% {
+                top: 357px;
+                left: 123px;
+            }
+        }
+        
+        #display {
+            position: absolute;
+            width: 500px;
+            left: 430px;
+            top: 200px;
+            
+        }
+        
+         #hint {
+            position: absolute;
+            background-color: #171717;
+            color: #404040;
+            text-align: center;
+            font-size: 30px;
+            opacity: .7;
+        }
+        
+    </style>
+</head>
+
+<body>
+
+    <div id='page4'>
+
+
+        <div id='background'>
+            <img src='page4background.svg'>
+        </div>
+
+        <div id='arrow3'>
+            <a href='index.html'><img src='page4arrow.svg'></a>
+        </div>
+
+        <div id='skulltop'>
+            <img src='page4skulltop.svg'>
+        </div>
+
+        <div id='skullbottom'>
+            <img src='page4skullbottom.svg'>
+        </div>
+        
+        <div id='display'>
+        </div>
+        
+        <div id='hint'>HINTS</div>
+
+    </div>
+
+
+
+    <script>
+        var skull = document.getElementById('skulltop');
+        var background = document.getElementById('display');
+        var numClicks = 0;
+        var imgs = document.createElement('img');
+        
+        var hint = document.getElementById('hint');
+        hint.style.height = '37px';
+        hint.style.width = '100px';
+        hint.style.left = '875px';
+        hint.style.top = '20px';
+        var numClicks2 = 0;
+        
+        hint.addEventListener('click', function () {
+            numClicks2++;
+            console.log('hey');
+
+            if (numClicks2 == 1) {
+                hint.style.left = '775px';
+                hint.style.top = '20px';
+                hint.style.height = '135px';
+                hint.style.width = '160px';
+                hint.innerHTML = ('TRY CLICKING:<br><br>1. On the skull a few times<br>2. The arrow will bring you back to the main page');
+                hint.style.fontSize = '16px';
+                hint.style.textAlign = 'left';
+                hint.style.paddingLeft = '15px';
+                hint.style.paddingTop = '10px';
+                hint.style.paddingRight = '15px';
+            } else if (numClicks2 == 2) {
+                hint.style.height = '37px';
+                hint.style.width = '100px';
+                hint.style.left = '875px';
+                hint.style.top = '20px';
+                hint.innerHTML = ('HINTS');
+                hint.style.fontSize = '30px';
+                hint.style.textAlign = 'center';
+                hint.style.paddingLeft = '0px';
+                hint.style.paddingTop = '0px';
+                hint.style.paddingRight = '0px';
+                
+                
+                
+            }
+
+            if (numClicks2 >= 2) {
+                numClicks2 = 0;
+            }
+
+
+        })
+
+        skull.addEventListener('click', function () {
+            console.log('1');
+            numClicks++;
+
+            if (numClicks == 1) {
+                imgs.src = 'page4black.svg';
+                display.appendChild(imgs);
+            } else if (numClicks == 2) {
+                imgs.src = 'page4yellow.svg';
+                display.appendChild(imgs);
+            } else if (numClicks == 3) {
+                imgs.src = 'page4orange.svg';
+                display.appendChild(imgs);
+            } else if (numClicks == 4) {
+                imgs.src = 'page4green.svg';
+                display.appendChild(imgs);
+            } else if (numClicks == 5) {
+                imgs.src = 'page4red.svg';
+                display.appendChild(imgs);
+            }
+
+            if (numClicks >= 5) {
+                numClicks = 0;
+            }
+
+
+        })
+
+        
+        
+        
+        
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+Haunted House
+    </title>
+    <style>
+        /*PAGE 2*/
+        #background {
+            position: absolute;
+            width: 980px;
+            height: 624px;
+        }
+        
+        #ledge {
+            position: absolute;
+            width: 500px;
+            top: 127px;
+            left: 20px;
+        }
+        
+        #jar1 {
+            position: absolute;
+            width: 110px;
+            top: 25px;
+            left: 360px;
+        }
+        
+        #brain {
+            position: absolute;
+            width: 95px;
+            -webkit-animation-name: brain;
+            -webkit-animation-duration: 4s;
+            -webkit-animation-iteration-count: infinite;
+            animation-name: brain;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+        }
+        
+        @-webkit-keyframes brain {
+            0% {
+                left: 367px;
+                top: 70px;
+            }
+            50% {
+                left: 367px;
+                top: 95px;
+            }
+            100% {
+                left: 367px;
+                top: 70px;
+            }
+        }
+        
+        @keyframes brain {
+            0% {
+                left: 367px;
+                top: 70px;
+            }
+            50% {
+                left: 367px;
+                top: 95px;
+            }
+            100% {
+                left: 367px;
+                top: 70px;
+            }
+        }
+        
+        #jar2 {
+            position: absolute;
+            width: 110px;
+            top: 73px;
+            left: 360px;
+        }
+        
+        #pump {
+            position: absolute;
+            width: 210px;
+            top: 396px;
+            left: 670px;
+            transition: opacity 10s;
+        }
+        
+        #carved {
+            position: absolute;
+            width: 210px;
+            top: 396px;
+            left: 670px;
+        }
+        
+        #pump1 {
+            position: absolute;
+            width: 140px;
+            top: 390px;
+            left: 130px;
+        }
+        
+        #pump2 {
+            position: absolute;
+            width: 140px;
+            top: 485px;
+            left: 240px;
+        }
+        
+        #pump3 {
+            position: absolute;
+            width: 140px;
+            top: 455px;
+            left: 350px;
+        }
+        
+        #pump4 {
+            position: absolute;
+            width: 150px;
+            top: 419px;
+            left: 440px;
+        }
+        
+        #pump5 {
+            position: absolute;
+            width: 190px;
+            top: 495px;
+            left: 450px;
+        }
+        
+        #knife {
+            position: absolute;
+            width: 24px;
+            top: 192px;
+            left: 226px;
+            transition: top 3s, left 1.5s;
+        }
+        
+        #arrow2 {
+            position: absolute;
+            width: 70px;
+            top: 15px;
+            left: 15px;
+        }
+        
+        #factdisplay {
+            position: absolute;
+            width: 400px;
+            top: 150px;
+            left: 550px;
+        }
+        
+         #hint {
+            position: absolute;
+            background-color: #171717;
+            color: #404040;
+            text-align: center;
+            font-size: 30px;
+            opacity: .7;
+        }
+    </style>
+</head>
+
+<body>
+   
+   <!--PAGE 2-->
+    <div id='page2'>
+        <div id='background'>
+            <img src='page2background.svg'>
+        </div>
+
+        <div id='jar2'>
+            <img src='page2jar2.svg'>
+        </div>
+
+        <div id='brain'>
+            <img src='page2brain.svg'>
+        </div>
+
+        <div id='jar1'>
+            <img src='page2jar1.svg'>
+        </div>
+
+        <div id='ledge'>
+            <img src='page2ledge.svg'>
+        </div>
+
+        <div id='pump1'>
+            <img src='page2pumpkin1.svg'>
+        </div>
+
+        <div id='pump3'>
+            <img src='page2pumpkin3.svg'>
+        </div>
+
+        <div id='pump2'>
+            <img src='page2pumpkin2.svg'>
+        </div>
+
+        <div id='pump4'>
+            <img src='page2pumpkin4.svg'>
+        </div>
+
+        <div id='pump5'>
+            <img src='page2pumpkin5.svg'>
+        </div>
+
+        <div id='carved'>
+            <img src='page2pumpkincarved.svg'>
+        </div>
+
+        <div id='pump'>
+            <img src='page2pumpkin.svg'>
+        </div>
+
+        <div id='knife'>
+            <img src='page2knife.svg'>
+        </div>
+
+        <div id='factdisplay'>
+        </div>
+
+        <div id='arrow2'>
+           <a href='index.html'><img src='page2arrowback.svg'></a>
+        </div>
+        
+        <div id='hint'>HINTS</div>
+        
+    </div>
+
+
+    <script>
+        /*PAGE 2*/
+        var pump1 = document.getElementById('pump1');
+        var pump2 = document.getElementById('pump2');
+        var pump3 = document.getElementById('pump3');
+        var pump4 = document.getElementById('pump4');
+        var pump5 = document.getElementById('pump5');
+
+        var arrow = document.getElementById('arrow');
+
+        var knife = document.getElementById('knife');
+
+        var fact = document.createElement('img');
+        var factdisplay = document.getElementById('factdisplay');
+        var numClicks1 = 0;
+        var numClicks2 = 0;
+        var numClicks3 = 0;
+        var numClicks4 = 0;
+        var numClicks5 = 0;
+        
+        
+        var hint = document.getElementById('hint');
+        hint.style.height = '37px';
+        hint.style.width = '100px';
+        hint.style.left = '875px';
+        hint.style.top = '665px';
+        var numClicks2 = 0;
+        
+        hint.addEventListener('click', function () {
+            numClicks2++;
+            console.log('hey');
+
+            if (numClicks2 == 1) {
+                hint.style.left = '785px';
+                hint.style.top = '500px';
+                hint.style.height = '190px';
+                hint.style.width = '160px';
+                hint.innerHTML = ('TRY CLICKING:<br><br>1. The knife farthest from the left<br>2. Each pumpkin will tell you two different facts about halloween<br>3. The arrow will bring you back to the main page');
+                hint.style.fontSize = '16px';
+                hint.style.textAlign = 'left';
+                hint.style.paddingLeft = '15px';
+                hint.style.paddingTop = '10px';
+                hint.style.paddingRight = '15px';
+            } else if (numClicks2 == 2) {
+                hint.style.height = '37px';
+                hint.style.width = '100px';
+                hint.style.left = '875px';
+                hint.style.top = '665px';
+                hint.innerHTML = ('HINTS');
+                hint.style.fontSize = '30px';
+                hint.style.textAlign = 'center';
+                hint.style.paddingLeft = '0px';
+                hint.style.paddingTop = '0px';
+                hint.style.paddingRight = '0px';
+                
+                
+                
+            }
+
+            if (numClicks2 >= 2) {
+                numClicks2 = 0;
+            }
+
+
+        })
+
+        pump1.addEventListener('click', function () {
+            numClicks1++;
+
+            if (numClicks1 == 1) {
+                fact.src = 'page2fact1.svg';
+                factdisplay.appendChild(fact);
+            } else if (numClicks1 == 2) {
+                fact.src = 'page2fact2.svg';
+                factdisplay.appendChild(fact);
+            }
+
+            if (numClicks1 >= 2) {
+                numClicks1 = 0;
+            }
+
+
+
+        })
+
+        pump2.addEventListener('click', function () {
+            numClicks2++;
+
+            if (numClicks2 == 1) {
+                fact.src = 'page2fact3.svg';
+                factdisplay.appendChild(fact);
+            } else if (numClicks2 == 2) {
+                fact.src = 'page2fact4.svg';
+                factdisplay.appendChild(fact);
+            }
+
+            if (numClicks2 >= 2) {
+                numClicks2 = 0;
+            }
+
+
+
+        })
+
+        pump3.addEventListener('click', function () {
+            numClicks3++;
+
+            if (numClicks3 == 1) {
+                fact.src = 'page2fact5.svg';
+                factdisplay.appendChild(fact);
+            } else if (numClicks3 == 2) {
+                fact.src = 'page2fact6.svg';
+                factdisplay.appendChild(fact);
+            }
+
+            if (numClicks3 >= 2) {
+                numClicks3 = 0;
+            }
+
+        })
+
+        pump4.addEventListener('click', function () {
+            numClicks4++;
+
+            if (numClicks4 == 1) {
+                fact.src = 'page2fact7.svg';
+                factdisplay.appendChild(fact);
+            } else if (numClicks4 == 2) {
+                fact.src = 'page2fact8.svg';
+                factdisplay.appendChild(fact);
+            }
+
+            if (numClicks4 >= 2) {
+                numClicks4 = 0;
+            }
+
+        })
+
+        pump5.addEventListener('click', function () {
+            numClicks5++;
+
+            if (numClicks5 == 1) {
+                fact.src = 'page2fact9.svg';
+                factdisplay.appendChild(fact);
+            } else if (numClicks5 == 2) {
+                fact.src = 'page2fact10.svg';
+                factdisplay.appendChild(fact);
+            }
+
+            if (numClicks5 >= 2) {
+                numClicks5 = 0;
+            }
+
+        })
+
+        knife.addEventListener('click', function () {
+            
+            knife.style.top = '430px';
+            knife.style.left = '670px'; 
+            document.getElementById('pump').style.opacity = '0'; 
+            
+        })
+
+        arrow2.addEventListener('click', function () {
+            console.log('click');
+            
+
+        })
+    </script>
+</body>
+
+</html>

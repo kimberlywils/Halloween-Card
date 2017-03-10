@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Haunted House
+    </title>
+    <style>
+        #background {
+            position: absolute;
+            width: 980px;
+            height: 624px;
+        }
+        
+        #houseland {
+            position: absolute;
+            width: 980px;
+            height: 624px;
+            margin-top: 180px;
+        }
+        
+        #moon {
+            position: absolute;
+            transition: width 3s, height 3s, margin 3s;
+        }
+        
+        #door {
+            position: absolute;
+            width: 81px;
+            margin-top: 431px;
+            margin-left: 580px;
+        }
+        
+        #lampposts {
+            position: absolute;
+            width: 500px;
+            margin-top: 455px;
+            margin-left: 193px;
+        }
+        
+        #windowmiddle {
+            position: absolute;
+            width: 116px;
+            margin-top: 375px;
+            margin-left: 555px;
+            opacity: 0.8;
+        }
+        
+        #windowmiddle:hover {
+            opacity: 1.0;
+        }
+        
+        #windowtop {
+            position: absolute;
+            width: 145px;
+            margin-top: 255px;
+            margin-left: 555px;
+            opacity: .8;
+        }
+        
+        #windowtop:hover {
+            opacity: 1.0;
+        }
+        
+        #windowbottom {
+            position: absolute;
+            width: 100px;
+            margin-top: 405px;
+            margin-left: 440px;
+            opacity: .8;
+        }
+        
+        #windowbottom:hover {
+            opacity: 1.0;
+        }
+        
+        #text {
+            position: absolute;
+            width: 190px;
+            margin-top: 330px;
+            margin-left: 500px;
+            opacity: 0;
+            transition: opacity 3s;
+        }
+        
+        #tomb {
+            position: absolute;
+            width: 90px;
+            margin-top: 400px;
+            margin-left: 100px;
+        }
+        
+        #ghost {
+            position: absolute;
+            width: 60px;
+            margin-top: 410px;
+            margin-left: 105px;
+            transition: width 10s, height 10s, margin 10s, opacity 3s;
+        }
+        
+        #hint {
+            position: absolute;
+            background-color: #171717;
+            color: #404040;
+            text-align: center;
+            font-size: 30px;
+            opacity: .7;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div id='page1'>
+
+
+        <div id='background'>
+            <img src='page1backgroundd.svg'>
+        </div>
+
+        <div id='moon'>
+            <img src='page1moon.svg'>
+        </div>
+
+        <div id='houseland'>
+            <img src='page1houseandyard.svg'>
+        </div>
+
+        <div id='lampposts'>
+            <img src='page1lampposts.svg'>
+        </div>
+
+        <div id='ghost'>
+            <img src='page1ghost.svg'>
+        </div>
+
+        <div id='door'>
+            <img src='page1door.svg'>
+        </div>
+
+        <div id='windowmiddle'>
+            <a href='index4.html'><img src='page1windowmiddle.svg'></a>
+        </div>
+
+        <div id='windowbottom'>
+            <a href='index2.html'>
+                <img src='page1windowbottom.svg'></a>
+        </div>
+
+        <div id='windowtop'>
+            <a href='index3.html'><img src='page1windowtop.svg'></a>
+        </div>
+
+        <div id='text'>
+            <img src='page1text.svg'>
+        </div>
+
+        <div id='tomb'>
+            <img src='page1tomb.svg'>
+        </div>
+
+        <div id='hint'>HINTS</div>
+
+    </div>
+
+    <script>
+        var moon = document.getElementById('moon');
+        var tomb = document.getElementById('tomb');
+        var door = document.getElementById('door');
+
+        moon.style.height = '300px';
+        moon.style.width = '300px';
+        moon.style.marginLeft = '150px';
+
+
+        var hint = document.getElementById('hint');
+        hint.style.height = '37px';
+        hint.style.width = '100px';
+        hint.style.left = '875px';
+        hint.style.top = '20px';
+        var numClicks2 = 0;
+
+        var numClicks = 0;
+
+        moon.addEventListener('click', function () {
+            numClicks++;
+
+            if (numClicks == 1) {
+                moon.style.height = '750px';
+                moon.style.width = '750px';
+                moon.style.marginTop = '-60px';
+                moon.style.marginLeft = '-10px';
+            } else if (numClicks == 2) {
+                moon.style.height = '300px';
+                moon.style.width = '300px';
+                moon.style.marginLeft = '150px';
+                moon.style.marginTop = '0px';
+            }
+
+            if (numClicks >= 2) {
+                numClicks = 0;
+            }
+
+
+        })
+
+
+        hint.addEventListener('click', function () {
+            numClicks2++;
+            console.log('hey');
+
+            if (numClicks2 == 1) {
+                hint.style.left = '775px';
+                hint.style.top = '20px';
+                hint.style.height = '155px';
+                hint.style.width = '160px';
+                hint.innerHTML = ('TRY CLICKING:<br><br>1. The moon<br>2. The front door<br>3. The tomb stone<br>4. Different windows will lead you to different rooms in the house');
+                hint.style.fontSize = '16px';
+                hint.style.textAlign = 'left';
+                hint.style.paddingLeft = '15px';
+                hint.style.paddingTop = '10px';
+                hint.style.paddingRight = '15px';
+            } else if (numClicks2 == 2) {
+                hint.style.height = '37px';
+                hint.style.width = '100px';
+                hint.style.left = '875px';
+                hint.style.top = '20px';
+                hint.innerHTML = ('HINTS');
+                hint.style.fontSize = '30px';
+                hint.style.textAlign = 'center';
+                hint.style.paddingLeft = '0px';
+                hint.style.paddingTop = '0px';
+                hint.style.paddingRight = '0px';
+
+
+
+            }
+
+            if (numClicks2 >= 2) {
+                numClicks2 = 0;
+            }
+
+
+        })
+
+        tomb.addEventListener('click', function () {
+
+            document.getElementById('ghost').style.marginTop = '-700px';
+            document.getElementById('ghost').style.marginLeft = '500px';
+            document.getElementById('ghost').style.width = '2000px';
+
+            document.getElementById('ghost').style.opacity = '0';
+
+
+        })
+
+        door.addEventListener('click', function () {
+            console.log('click');
+
+            document.getElementById('text').style.opacity = '1';
+
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Haunted House
+    </title>
+    <style>
+        #background {
+            position: absolute;
+            width: 980px;
+            height: 624px;
+            z-index: -20;
+        }
+        
+        #vampbody {
+            position: absolute;
+            width: 980px;
+            top: 246px;
+            z-index: -19;
+        }
+        
+        #vamphead {
+            position: absolute;
+            height: 200px;
+            width: 255px;
+            top: 157px;
+            left: 362px;
+            z-index: -16;
+        }
+        
+        #vampteeth {
+            position: absolute;
+            width: 48px;
+            top: 326px;
+            left: 469px;
+            z-index: -14;
+        }
+        
+        #vampcape {
+            position: absolute;
+            width: 980px;
+            top: 246px;
+            z-index: -18;
+            opacity: 1;
+            transition: opacity 1s;
+        }
+        
+        #bat1 {
+            position: absolute;
+            width: 250px;
+            left: 110px;
+            top: 450px;
+            z-index: -19;
+        }
+        
+        #bat2 {
+            position: absolute;
+            width: 220px;
+            left: 600px;
+            top: 450px;
+            z-index: -19;
+        }
+        
+        #blooddrop1 {
+            position: absolute;
+            width: 0px;
+            top: 330px;
+            left: 478px;
+            z-index: -15;
+            transition: opacity 3s, top 4s;
+        }
+        
+        #blooddrop2 {
+            position: absolute;
+            width: 0px;
+            top: 330px;
+            left: 501px;
+            z-index: -15;
+            transition: opacity 3s, top 4s;
+        }
+        
+        #blooddrop3 {
+            position: absolute;
+            width: 0px;
+            top: 330px;
+            left: 478px;
+            z-index: -15;
+            transition: opacity 3s, top 4s;
+        }
+        
+        #blooddrop4 {
+            position: absolute;
+            width: 0px;
+            top: 330px;
+            left: 501px;
+            z-index: -15;
+            transition: opacity 3s, top 4s;
+        }
+        
+        #blooddrop5 {
+            position: absolute;
+            width: 0px;
+            top: 330px;
+            left: 478px;
+            z-index: -15;
+            transition: opacity 3s, top 4s;
+        }
+        
+        #blooddrop6 {
+            position: absolute;
+            width: 0px;
+            top: 330px;
+            left: 501px;
+            z-index: -15;
+            transition: opacity 3s, top 4s;
+        }
+        
+        #arrow {
+            position: absolute;
+            width: 70px;
+            top: 15px;
+            left: 15px;
+            z-index: -13;
+        }
+        
+          #audio {
+            display: hidden;
+            z-index: 1;
+        }
+        
+         #hint {
+            position: absolute;
+            background-color: #171717;
+            color: #404040;
+            text-align: center;
+            font-size: 30px;
+            opacity: .7;
+        }
+    </style>
+</head>
+
+<body>
+    <div id='page3'>
+       <audio id='audio'></audio>
+       
+        <div id='background'>
+            <img src='page3background.svg'>
+        </div>
+
+        <div id='vampbody'>
+            <img src='page3vampbody.svg'>
+        </div>
+
+        <div id='vamphead'>
+            <img src='page3vamphead.svg'>
+        </div>
+
+        <div id='vampteeth'>
+            <img src='page3vampteeth.svg'>
+        </div>
+
+        <div id='bat1'>
+            <img src='page3bat1.svg'>
+        </div>
+
+        <div id='bat2'>
+            <img src='page3bat2.svg'>
+        </div>
+
+        <div id='vampcape'>
+            <img src='page3vampcape.svg'>
+        </div>
+
+        <div id='blooddrop1'>
+            <img src='page3blooddrop1.svg'>
+        </div>
+
+        <div id='blooddrop2'>
+            <img src='page3blooddrop2.svg'>
+        </div>
+
+        <div id='blooddrop3'>
+            <img src='page3blooddrop3.svg'>
+        </div>
+
+        <div id='blooddrop4'>
+            <img src='page3blooddrop4.svg'>
+        </div>
+
+        <div id='blooddrop5'>
+            <img src='page3blooddrop5.svg'>
+        </div>
+
+        <div id='blooddrop6'>
+            <img src='page3blooddrop6.svg'>
+        </div>
+
+        <div id='arrow'>
+            <a href='index.html'><img src='page3arrow.svg'></a>
+        </div>
+        
+        <div id='hint'>HINTS</div>
+
+
+    </div>
+
+
+    <script>
+        var numClicks = 0;
+        var numClicks1 = 0;
+
+        var vamphead = document.getElementById('vamphead');
+        var vampcape = document.getElementById('vampcape');
+
+        var bat = document.getElementById('bat1');
+        var mousedown = false;
+        
+        var hint = document.getElementById('hint');
+        hint.style.height = '37px';
+        hint.style.width = '100px';
+        hint.style.left = '875px';
+        hint.style.top = '20px';
+        var numClicks2 = 0;
+        
+        hint.addEventListener('click', function () {
+            numClicks2++;
+            console.log('hey');
+
+            if (numClicks2 == 1) {
+                hint.style.left = '775px';
+                hint.style.top = '20px';
+                hint.style.height = '210px';
+                hint.style.width = '160px';
+                hint.innerHTML = ('TRY CLICKING:<br><br>1. The vampires nose and face<br>2. Double click the vampires cape<br>3. Drag the bats around the screen<br>4. The arrow will bring you back to the main page');
+                hint.style.fontSize = '16px';
+                hint.style.textAlign = 'left';
+                hint.style.paddingLeft = '15px';
+                hint.style.paddingTop = '10px';
+                hint.style.paddingRight = '15px';
+            } else if (numClicks2 == 2) {
+                hint.style.height = '37px';
+                hint.style.width = '100px';
+                hint.style.left = '875px';
+                hint.style.top = '20px';
+                hint.innerHTML = ('HINTS');
+                hint.style.fontSize = '30px';
+                hint.style.textAlign = 'center';
+                hint.style.paddingLeft = '0px';
+                hint.style.paddingTop = '0px';
+                hint.style.paddingRight = '0px';
+                
+                
+                
+            }
+
+            if (numClicks2 >= 2) {
+                numClicks2 = 0;
+            }
+
+
+        })
+
+        bat.addEventListener('mousedown', function (ev) {
+            console.log('down');
+            mousedown = true;
+
+
+        })
+
+        bat.addEventListener('mouseup', function (ev) {
+            console.log('up');
+            mousedown = false;
+
+
+        })
+
+        bat.addEventListener('mousemove', function (ev) {
+
+            if (mousedown == true) {
+                bat.style.left = (ev.clientX - 100) + 'px';
+                bat.style.top = (ev.clientY - 50) + 'px';
+            }
+
+
+        })
+
+
+        var bat2 = document.getElementById('bat2');
+        var mousedown = false;
+
+        bat2.addEventListener('mousedown', function (ev) {
+            console.log('down');
+            mousedown = true;
+
+
+        })
+
+        bat2.addEventListener('mouseup', function (ev) {
+            console.log('up');
+            mousedown = false;
+
+
+        })
+
+        bat2.addEventListener('mousemove', function (ev) {
+
+            if (mousedown == true) {
+                bat2.style.left = (ev.clientX - 100) + 'px';
+                bat2.style.top = (ev.clientY - 50) + 'px';
+            }
+
+
+        })
+
+
+
+        vamphead.addEventListener('click', function () {
+            numClicks++;
+
+
+            if (numClicks == 1) {
+                document.getElementById('blooddrop1').style.top = '700px';
+                document.getElementById('blooddrop1').style.opacity = '0';
+                document.getElementById('blooddrop1').style.width = '6px';
+            }
+
+            if (numClicks == 2) {
+                document.getElementById('blooddrop2').style.top = '700px';
+                document.getElementById('blooddrop2').style.opacity = '0';
+                document.getElementById('blooddrop2').style.width = '6px';
+            }
+
+            if (numClicks == 3) {
+                document.getElementById('blooddrop3').style.top = '700px';
+                document.getElementById('blooddrop3').style.opacity = '0';
+                document.getElementById('blooddrop3').style.width = '6px';
+            }
+
+            if (numClicks == 4) {
+                document.getElementById('blooddrop4').style.top = '700px';
+                document.getElementById('blooddrop4').style.opacity = '0';
+                document.getElementById('blooddrop4').style.width = '6px';
+            }
+            if (numClicks == 5) {
+                document.getElementById('blooddrop5').style.top = '700px';
+                document.getElementById('blooddrop5').style.opacity = '0';
+                document.getElementById('blooddrop5').style.width = '6px';
+            }
+
+            if (numClicks == 6) {
+                document.getElementById('blooddrop6').style.top = '700px';
+                document.getElementById('blooddrop6').style.opacity = '0';
+                document.getElementById('blooddrop6').style.width = '6px';
+            }
+
+
+
+        })
+
+        vampcape.addEventListener('click', function () {
+            numClicks1++;
+            
+            if (numClicks1 == 1) {
+                vampcape.style.opacity = '0';
+            }
+            if (numClicks1 > 1) {
+                alert('Dragging the bats around the page can be a little tricky, see how well you can do it.');
+                vampcape.style.zIndex = '-99';
+            }
+
+        })
+    </script>
+</body>
+
+</html>
